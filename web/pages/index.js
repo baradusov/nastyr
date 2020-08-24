@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
+import { getAllPages } from '../lib/api';
+
+const Home = (props) => {
+  const { pages } = props;
   return (
     <>
       <Head>
@@ -17,36 +20,13 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.menu}>
           <ul>
-            <li className={styles.menuItem}>
-              <a className={styles.menuLink} href="/">
-                dacha 2020
-              </a>
-            </li>
-            <li className={styles.menuItem}>
-              <a className={styles.menuLink} href="/">
-                italy’2020
-              </a>
-            </li>
-            <li className={styles.menuItem}>
-              <a className={styles.menuLink} href="/">
-                ambar vintage
-              </a>
-            </li>
-            <li className={styles.menuItem}>
-              <a className={styles.menuLink} href="/">
-                friends
-              </a>
-            </li>
-            <li className={styles.menuItem}>
-              <a className={styles.menuLink} href="/">
-                web journal
-              </a>
-            </li>
-            <li className={styles.menuItem}>
-              <a className={styles.menuLink} href="/">
-                about my cat
-              </a>
-            </li>
+            {pages.map((page) => (
+              <li className={styles.menuItem} key={page._id}>
+                <a className={styles.menuLink} href={page.slug}>
+                  {page.title}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -56,4 +36,16 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export const getStaticProps = async () => {
+  const data = await getAllPages();
+  console.log(data);
+  return {
+    props: {
+      pages: data,
+    },
+  };
+};
+
+export default Home;

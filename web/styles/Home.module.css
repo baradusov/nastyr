@@ -37,6 +37,7 @@
 
 .menu {
   align-self: flex-end;
+  min-width: 232px;
 }
 
 .menuItem {
@@ -53,6 +54,10 @@
   transition: color 0.3s ease-in-out; 
 }
 
+.menuLink.isActive {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .menuLink:hover {
   color: #ffffff;
 }
@@ -61,4 +66,14 @@
   position: absolute;
   right: 0;
   bottom: 0;
+}
+
+.gallery {
+  display: flex;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.galleryImage {
+  margin-right: 110px;
 }
