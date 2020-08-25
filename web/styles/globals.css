@@ -22,6 +22,8 @@ body {
 
 body {
   padding: 70px;
+  /* +45px от хэдера */
+  padding-top: 115px;
   background-color: #0a0a0a;
 }
 

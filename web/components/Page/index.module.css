@@ -1,0 +1,90 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 70px;
+}
+
+.title {
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.text {
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.text:hover {
+  color: #ffffff;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  /* 21px текущая высат хедера, нужно избавиться от магического числа*/
+  height: calc(100% - 21px);
+}
+
+.menu {
+  align-self: flex-end;
+  min-width: 232px;
+}
+
+.menuItem {
+  margin-bottom: 10px;
+}
+
+.menuLink {
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.3s ease-in-out;
+}
+
+.menuLink.isActive {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.menuLink:hover {
+  color: #ffffff;
+}
+
+.contactsContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.contacts {
+  position: absolute;
+  z-index: 2;
+  top: 25px;
+  right: 0;
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s ease-in-out;
+  white-space: nowrap;
+}
