@@ -1,0 +1,45 @@
+.menu {
+  align-self: flex-end;
+  min-width: 232px;
+}
+
+.menuItem {
+  margin-bottom: 10px;
+}
+
+.menuLink {
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.3s ease-in-out;
+}
+
+.menuLink.isActive {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.menuLink:hover {
+  color: #ffffff;
+}
+
+.menuImage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.menuLink:hover ~ .menuImage {
+  opacity: 1;
+}
+
+.defaultMenuImage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: opacity 0.3s ease-in;
+}

@@ -1,17 +1,11 @@
-import Page from '../components/Page';
-import styles from '../styles/Home.module.css';
-
 import { getAllPages } from '../lib/api';
+
+import Page from '../components/Page';
 
 const Home = (props) => {
   const { pages } = props;
-  return (
-    <Page pages={pages}>
-      <div className={styles.menuImage}>
-        <img src="/DSCF4725 1.jpg" />
-      </div>
-    </Page>
-  );
+
+  return <Page pages={pages} home />;
 };
 
 export const getStaticProps = async () => {
