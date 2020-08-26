@@ -1,10 +1,16 @@
 .gallery {
   display: flex;
+  align-items: center;
   padding-top: 70px;
   padding-bottom: 70px;
-  padding-right: 70px;
 }
 
 .galleryImage {
+  max-height: 100%;
+  max-width: none;
   margin-right: 110px;
+}
+
+.galleryImage:last-child {
+  margin-right: 0;
 }
