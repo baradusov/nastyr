@@ -16,7 +16,7 @@ export default {
       name: 'slug',
       type: 'slug',
       options: {
-        source: 'title'
+        source: 'title',
       },
       validation: (Rule) => Rule.required().error('Алиас страницы обязателен'),
     },
@@ -28,6 +28,9 @@ export default {
       of: [
         {
           type: 'image',
+          options: {
+            hotspot: true,
+          },
           fields: [
             {
               name: 'caption',
@@ -42,12 +45,9 @@ export default {
         Rule.required().error('Выберите как минимум одну фотографию'),
     },
     {
-      title: 'Скрыть страницу',
-      name: 'hidden',
-      type: 'boolean',
-      options: {
-        layout: 'switch',
-      }
+      title: 'Описание раздела',
+      name: 'description',
+      type: 'text',
     },
   ],
 };
