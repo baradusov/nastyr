@@ -9,21 +9,21 @@ import Page from '../components/Page';
 const Home = ({ data, pages }) => {
   const { title, images } = data;
 
-  const handleHorizontalPageScroll = (event) => {
-    if (event.deltaY > 0) {
-      window.scrollBy({ top: 0, left: 25, behavior: 'auto' });
-    } else {
-      window.scrollBy({ top: 0, left: -25, behavior: 'auto' });
-    }
-  };
+  // const handleHorizontalPageScroll = (event) => {
+  //   if (event.deltaY > 0) {
+  //     window.scrollBy({ top: 0, left: 25, behavior: 'auto' });
+  //   } else {
+  //     window.scrollBy({ top: 0, left: -25, behavior: 'auto' });
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener('wheel', handleHorizontalPageScroll);
+  // useEffect(() => {
+  //   window.addEventListener('wheel', handleHorizontalPageScroll);
 
-    return () => {
-      window.removeEventListener('wheel', handleHorizontalPageScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('wheel', handleHorizontalPageScroll);
+  //   };
+  // }, []);
 
   return (
     <Page pages={pages} title={title}>
