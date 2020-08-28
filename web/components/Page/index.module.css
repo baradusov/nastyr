@@ -16,6 +16,7 @@
 .main {
   position: relative;
   display: flex;
-  /* 21px текущая высат хедера, нужно избавиться от магического числа*/
+  justify-content: space-between;
+  /* 21px текущая высота хедера, нужно избавиться от магического числа*/
   height: calc(100% - 21px);
 }

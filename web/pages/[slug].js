@@ -35,6 +35,9 @@ const Home = ({ data, pages }) => {
             key={photo._key}
           />
         ))}
+
+        {/* чтобы после последней фотографии был отступ */}
+        <div style={{ height: '100%', width: 1, flexShrink: 0 }}></div>
       </div>
     </Page>
   );
