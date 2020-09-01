@@ -10,7 +10,7 @@
   z-index: 2;
   top: 25px;
   right: 0;
-  font-family: Helvetica Neue;
+  font-family: 'Helvetica Neue Light';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -21,7 +21,7 @@
 }
 
 .title {
-  font-family: Helvetica Neue;
+  font-family: 'Helvetica Neue Light';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -36,7 +36,7 @@
 }
 
 .link {
-  font-family: Helvetica Neue;
+  font-family: 'Helvetica Neue Light';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
