@@ -63,3 +63,10 @@ img {
 #__next {
   height: 100%;
 }
+
+@media (max-width: 600px) {
+  body {
+    padding: 30px 10px;
+    padding-top: 80px;
+  }
+}

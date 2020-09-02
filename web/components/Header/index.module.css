@@ -8,3 +8,10 @@
   width: 100%;
   padding: 70px;
 }
+
+@media (max-width: 600px) {
+  .header {
+    padding: 30px 10px;
+    padding-bottom: 0;
+  }
+}

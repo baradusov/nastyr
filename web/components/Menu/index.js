@@ -1,10 +1,15 @@
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 import styles from './index.module.css';
 
-const Menu = ({ pages, home }) => {
-  const defaultImage = useRef();
+const Menu = ({ pages, home, defaultImage }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const { asPath } = useRouter();
+  const [currentPage] = pages.filter((page) => {
+    return asPath === `/${page.slug}`;
+  });
 
   const handleMouseOver = () => {
     if (defaultImage.current) {
@@ -18,10 +23,16 @@ const Menu = ({ pages, home }) => {
     }
   };
 
+  const toggleMenu = () => {
+    setIsVisible((isVisible) => !isVisible);
+  };
+
   return (
-    <>
-      <div className={styles.menu}>
-        <ul>
+    <div className={styles.menu}>
+      <div
+        className={`${styles.menuOverlay} ${isVisible ? styles.isVisible : ''}`}
+      >
+        <ul className={styles.menuList}>
           {pages.map((page) => (
             <li
               className={styles.menuItem}
@@ -30,7 +41,13 @@ const Menu = ({ pages, home }) => {
               onMouseOut={handleMouseOut}
             >
               <Link href="[slug]" as={page.slug}>
-                <a className={styles.menuLink}>{page.title}</a>
+                <a
+                  className={`${styles.menuLink} ${
+                    asPath === `/${page.slug}` ? styles.isActive : ''
+                  }`}
+                >
+                  {page.title}
+                </a>
               </Link>
               {home && (
                 <div className={styles.menuImage}>
@@ -40,14 +57,25 @@ const Menu = ({ pages, home }) => {
             </li>
           ))}
         </ul>
+
+        {!home ? (
+          <button onClick={toggleMenu} className={styles.menuButton}>
+            *
+          </button>
+        ) : null}
       </div>
 
-      {home && (
-        <div className={styles.defaultMenuImage} ref={defaultImage}>
-          <img src="/DSCF4725 1.jpg" />
+      {!home ? (
+        <div
+          className={`${styles.mobileMenu} ${isVisible ? styles.isHidden : ''}`}
+        >
+          <p className={styles.mobileMenuLink}>{currentPage.title}</p>
+          <button onClick={toggleMenu} className={styles.menuButton}>
+            ***
+          </button>
         </div>
-      )}
-    </>
+      ) : null}
+    </div>
   );
 };
 

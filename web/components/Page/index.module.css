@@ -18,5 +18,5 @@
   display: flex;
   justify-content: space-between;
   /* 21px текущая высота хедера, нужно избавиться от магического числа*/
-  height: calc(100% - 21px);
+  height: 100%;
 }

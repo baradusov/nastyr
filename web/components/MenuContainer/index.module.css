@@ -14,8 +14,7 @@
   margin-bottom: 10px;
 }
 
-.menuLink,
-.mobileMenuLink {
+.menuLink {
   font-family: 'Helvetica Neue Light';
   font-style: normal;
   font-weight: normal;
@@ -27,18 +26,6 @@
 
 .menuLink.isActive {
   color: rgba(255, 255, 255, 0.4);
-}
-
-.mobileMenuLink {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.mobileMenuLink {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.mobileMenu.isHidden {
-  display: none;
 }
 
 .menuLink:hover {
@@ -64,14 +51,6 @@
   transition: opacity 0.3s ease-in;
 }
 
-.mobileMenu {
-  display: none;
-}
-
-.menuButton {
-  display: none;
-}
-
 @media (max-width: 600px) {
   .menuContainer {
     flex-direction: column-reverse;
@@ -90,45 +69,5 @@
     max-width: none;
     width: 100%;
     transition: opacity 0.3s ease-in;
-  }
-
-  .menuOverlay {
-    display: none;
-  }
-
-  .menuOverlay.isVisible {
-    position: fixed;
-    top: 100px;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 100%;
-    padding: 30px 10px;
-  }
-
-  .mobileMenu {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 30px 10px;
-  }
-
-  .menuButton {
-    padding: 10px;
-    border: none;
-    font: inherit;
-    color: rgba(255, 255, 255, 0.4);;
-    background-color: transparent;
-    cursor: pointer;
-  }
-
-  .menuOverlay.isVisible .menuButton {
-    color: #ffffff;
   }
 }

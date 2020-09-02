@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import styles from './index.module.css';
 import Header from '../Header';
-import Menu from '../Menu';
+import MenuContainer from '../MenuContainer';
 
 const Page = ({ pages, children, title, home }) => {
   return (
@@ -18,7 +18,7 @@ const Page = ({ pages, children, title, home }) => {
       <Header />
 
       <main className={styles.main}>
-        <Menu pages={pages} home={home} />
+        <MenuContainer pages={pages} home={home} />
 
         {children}
       </main>
