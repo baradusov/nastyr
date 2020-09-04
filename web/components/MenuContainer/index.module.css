@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.menuContainer.full {
+  height: 100%;
+}
+
 .menu {
   align-self: flex-end;
   min-width: 232px;

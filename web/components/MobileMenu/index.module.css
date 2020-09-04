@@ -1,0 +1,74 @@
+.menu,
+.secondMenu {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .menu {
+    display: block;
+    align-self: flex-start;
+    min-width: 232px;
+  }
+
+  .secondMenuContainer {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+  }
+
+  .secondMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .secondMenuOverlay {
+    position: fixed;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .secondMenuListContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .menuItem {
+    margin-bottom: 10px;
+  }
+
+  .menuItem:last-child {
+    margin-bottom: 0;
+  }
+
+  .menuLink {
+    font-family: 'Helvetica Neue Light';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease-in-out;
+  }
+
+  .menuLink.isActive {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .menuLink:hover {
+    color: #ffffff;
+  }
+  .menuButton {
+    border: none;
+    font: inherit;
+    color: rgba(255, 255, 255, 0.4);
+    background-color: transparent;
+    cursor: pointer;
+  }
+}

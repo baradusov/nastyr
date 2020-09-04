@@ -20,3 +20,9 @@
   /* 21px текущая высота хедера, нужно избавиться от магического числа*/
   height: 100%;
 }
+
+@media (max-width: 600px) {
+  .main {
+    flex-direction: column-reverse;
+  }
+}

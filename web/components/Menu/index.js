@@ -29,52 +29,31 @@ const Menu = ({ pages, home, defaultImage }) => {
 
   return (
     <div className={styles.menu}>
-      <div
-        className={`${styles.menuOverlay} ${isVisible ? styles.isVisible : ''}`}
-      >
-        <ul className={styles.menuList}>
-          {pages.map((page) => (
-            <li
-              className={styles.menuItem}
-              key={page._id}
-              onMouseOver={handleMouseOver}
-              onMouseOut={handleMouseOut}
-            >
-              <Link href="[slug]" as={page.slug}>
-                <a
-                  className={`${styles.menuLink} ${
-                    asPath === `/${page.slug}` ? styles.isActive : ''
-                  }`}
-                >
-                  {page.title}
-                </a>
-              </Link>
-              {home && (
-                <div className={styles.menuImage}>
-                  <img src="/IMG_5555 1.png" />
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-
-        {!home ? (
-          <button onClick={toggleMenu} className={styles.menuButton}>
-            *
-          </button>
-        ) : null}
-      </div>
-
-      {!home ? (
-        <div
-          className={`${styles.mobileMenu} ${isVisible ? styles.isHidden : ''}`}
-        >
-          <p className={styles.mobileMenuLink}>{currentPage.title}</p>
-          <button onClick={toggleMenu} className={styles.menuButton}>
-            ***
-          </button>
-        </div>
-      ) : null}
+      <ul className={styles.menuList}>
+        {pages.map((page) => (
+          <li
+            className={styles.menuItem}
+            key={page._id}
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}
+          >
+            <Link href="[slug]" as={page.slug}>
+              <a
+                className={`${styles.menuLink} ${
+                  asPath === `/${page.slug}` ? styles.isActive : ''
+                }`}
+              >
+                {page.title}
+              </a>
+            </Link>
+            {home && (
+              <div className={styles.menuImage}>
+                <img src="/IMG_5555 1.png" />
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
