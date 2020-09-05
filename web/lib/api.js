@@ -12,7 +12,8 @@ export async function getPageBySlug(slug) {
       _id,
       title,
       'slug': slug.current,
-      images
+      images,
+      description
     }`,
     { slug }
   );

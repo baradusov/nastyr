@@ -6,19 +6,20 @@
   padding-bottom: 70px;
 }
 
-.galleryImage {
-  height: 100%;
-  max-width: 100%;
-  margin-right: 302px;
-  object-fit: contain;
+.description {
+  column-count: 2;
+  min-width: 450px;
+}
+
+.descriptionText {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  column-count: 2;
+  column-width: 450px;
 }
 
 @media (max-width: 600px) {
   .gallery {
     padding-top: 57px;
-  }
-
-  .galleryImage {
-    margin-right: 50px;
   }
 }

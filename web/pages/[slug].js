@@ -1,41 +1,24 @@
-import { useEffect } from 'react';
+import Image from '../components/Image';
 import styles from '../styles/Home.module.css';
 
-import urlFor from '../lib/urlFor';
 import { getPageBySlug, getAllPages } from '../lib/api';
 
 import Page from '../components/Page';
 
 const Home = ({ data, pages }) => {
-  const { title, images } = data;
-
-  // const handleHorizontalPageScroll = (event) => {
-  //   if (event.deltaY > 0) {
-  //     window.scrollBy({ top: 0, left: 25, behavior: 'auto' });
-  //   } else {
-  //     window.scrollBy({ top: 0, left: -25, behavior: 'auto' });
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener('wheel', handleHorizontalPageScroll);
-
-  //   return () => {
-  //     window.removeEventListener('wheel', handleHorizontalPageScroll);
-  //   };
-  // }, []);
+  const { title, images, description } = data;
 
   return (
     <Page pages={pages} title={title}>
       <div className={styles.gallery}>
         {images.map((photo) => (
-          <img
-            className={styles.galleryImage}
-            src={urlFor(photo).url()}
-            key={photo._key}
-          />
+          <Image key={photo._key} photo={photo} />
         ))}
-
+        {description && (
+          <div className={styles.description}>
+            <p className={styles.descriptionText}>{description}</p>
+          </div>
+        )}
         {/* чтобы после последней фотографии был отступ */}
         <div style={{ height: '100%', width: 1, flexShrink: 0 }}></div>
       </div>
