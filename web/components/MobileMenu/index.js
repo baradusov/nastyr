@@ -101,6 +101,7 @@ const MobileMenu = ({ pages, home }) => {
                             className={`${styles.menuLink} ${
                               asPath === `/${page.slug}` ? styles.isActive : ''
                             }`}
+                            onClick={toggleMenu}
                           >
                             {page.title}
                           </a>

@@ -77,4 +77,12 @@
     background-color: transparent;
     cursor: pointer;
   }
+
+  .menuButton:focus {
+    outline: none;
+  }
+
+  .menuButton:focus-visible {
+    outline: 1px solid white;
+  }
 }
