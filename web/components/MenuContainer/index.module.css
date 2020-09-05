@@ -58,7 +58,6 @@
 @media (max-width: 600px) {
   .menuContainer {
     flex-direction: column-reverse;
-    padding-top: 57px;
   }
 
   .menu {
