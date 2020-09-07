@@ -66,7 +66,7 @@ const MobileMenu = ({ pages, home }) => {
                       initial={{ x: 30 }}
                       animate={{ x: 0 }}
                       exit={{ x: 30 }}
-                      transition={{ delay: 0.05 }}
+                      transition={{ delay: 0.05, ease: "easeOut" }}
                     />
                     <motion.circle
                       cx="20"
