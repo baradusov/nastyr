@@ -7,19 +7,28 @@
 }
 
 .description {
-  column-count: 2;
-  min-width: 450px;
+  height: 100%;
+  margin-right: 302px;
+  column-width: 450px;
+  column-gap: 70px;
 }
 
 .descriptionText {
+  min-width: 450px;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.9);
-  column-count: 2;
-  column-width: 450px;
 }
 
 @media (max-width: 600px) {
   .gallery {
     padding-top: 57px;
+  }
+
+  .description {
+    margin-right: 70px;
+  }
+
+  .descriptionText {
+    min-width: 320px;
   }
 }
