@@ -17,7 +17,6 @@ const Image = ({ photo }) => {
   };
 
   useEffect(() => {
-    console.log(isVisible);
     if (isVisible) {
       image.current.addEventListener('mousedown', hideCaption);
       document.addEventListener('mousedown', hideCaption);
