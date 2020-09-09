@@ -24,13 +24,7 @@ const MobileMenu = ({ pages, home }) => {
             {pages.map((page) => (
               <li className={styles.menuItem} key={page._id}>
                 <Link href="[slug]" as={page.slug}>
-                  <a
-                    className={`${styles.menuLink} ${
-                      asPath === `/${page.slug}` ? styles.isActive : ''
-                    }`}
-                  >
-                    {page.title}
-                  </a>
+                  <a className={styles.menuLink}>{page.title}</a>
                 </Link>
               </li>
             ))}
@@ -66,7 +60,7 @@ const MobileMenu = ({ pages, home }) => {
                       initial={{ x: 30 }}
                       animate={{ x: 0 }}
                       exit={{ x: 30 }}
-                      transition={{ delay: 0.05, ease: "easeOut" }}
+                      transition={{ delay: 0.05, ease: 'easeOut' }}
                     />
                     <motion.circle
                       cx="20"
@@ -97,12 +91,7 @@ const MobileMenu = ({ pages, home }) => {
                     {pages.map((page) => (
                       <li className={styles.menuItem} key={page._id}>
                         <Link href="[slug]" as={page.slug}>
-                          <a
-                            className={`${styles.menuLink} ${
-                              asPath === `/${page.slug}` ? styles.isActive : ''
-                            }`}
-                            onClick={toggleMenu}
-                          >
+                          <a className={styles.menuLink} onClick={toggleMenu}>
                             {page.title}
                           </a>
                         </Link>
