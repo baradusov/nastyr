@@ -28,7 +28,7 @@ const Menu = ({ pages, home, defaultImage }) => {
   };
 
   return (
-    <div className={styles.menu}>
+    <div className={`${home ? styles.isHome : ''} ${styles.menu}`}>
       <ul className={styles.menuList}>
         {pages.map((page) => (
           <li
