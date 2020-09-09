@@ -33,24 +33,29 @@ const Contacts = () => {
       </p>
       {isVisible ? (
         <p className={styles.contacts}>
-          hello! my{' '}
-          <a
-            className={styles.link}
-            href="https://www.instagram.com/nasty.rr/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            instagram
-          </a>{' '}
-          and{' '}
-          <a
-            className={styles.link}
-            href="https://t.me/nastyrr"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            telegram
-          </a>
+          hello!{' '}
+          <span>
+            my{' '}
+            <a
+              className={styles.link}
+              href="https://www.instagram.com/nasty.rr/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              instagram
+            </a>{' '}
+          </span>
+          <span>
+            and{' '}
+            <a
+              className={styles.link}
+              href="https://t.me/nastyrr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              telegram
+            </a>
+          </span>
         </p>
       ) : null}
     </div>
