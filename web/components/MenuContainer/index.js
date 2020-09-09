@@ -9,7 +9,7 @@ const MenuContainer = ({ pages, home }) => {
   const defaultImage = useRef();
 
   return (
-    <div className={`${styles.menuContainer} ${home ? styles.full : ''}`}>
+    <div className={`${styles.menuContainer} ${home ? styles.isHome : ''}`}>
       <Menu defaultImage={defaultImage} pages={pages} home={home} />
       <MobileMenu defaultImage={defaultImage} pages={pages} home={home} />
 
