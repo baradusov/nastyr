@@ -17,19 +17,19 @@
     display: block;
     bottom: 30px;
     left: 0;
-    width: 100%;
   }
 
   .secondMenu {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
     padding: 0 10px;
+    cursor: pointer;
   }
 
   .secondMenuOverlay {
     position: fixed;
-    top: 80px;
+    top: 0;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -41,18 +41,11 @@
     position: fixed;
     bottom: 30px;
     left: 0;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
     padding: 0 10px;
   }
 
   .menuItem {
-    margin-bottom: 10px;
-  }
-
-  .menuItem:last-child {
-    margin-bottom: 0;
+    margin-top: 10px;
   }
 
   .menuLink {
@@ -72,13 +65,17 @@
   .menuLink:hover {
     color: #ffffff;
   }
+
   .menuButton {
-    align-self: flex-end;
+    display: flex;
+    padding: 0;
     border: none;
     font: inherit;
+    text-align: center;
     color: rgba(255, 255, 255, 0.4);
     background-color: transparent;
     cursor: pointer;
+    text-align: left;
   }
 
   .menuButton:focus {
