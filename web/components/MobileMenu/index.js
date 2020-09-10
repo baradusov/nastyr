@@ -5,6 +5,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import styles from './index.module.css';
 
+const listVariants = {
+  visible: {
+    transition: { staggerChildren: 0.07 },
+  },
+  hidden: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+};
+
+const itemVariants = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 10 },
+};
+
 const MobileMenu = ({ pages, home }) => {
   const [isVisible, setIsVisible] = useState(false);
   const { asPath } = useRouter();
@@ -104,17 +118,27 @@ const MobileMenu = ({ pages, home }) => {
                     <circle cx="2.5" cy="2.5" r="2.5" fill="#fff" />
                   </svg>
 
-                  <ul className={styles.menuList}>
+                  <motion.ul
+                    className={styles.menuList}
+                    initial={'hidden'}
+                    animate={'visible'}
+                    exit={'hidden'}
+                    variants={listVariants}
+                  >
                     {pages.map((page) => (
-                      <li className={styles.menuItem} key={page._id}>
+                      <motion.li
+                        className={styles.menuItem}
+                        key={page._id}
+                        variants={itemVariants}
+                      >
                         <Link href="[slug]" as={page.slug}>
                           <a className={styles.menuLink} onClick={toggleMenu}>
                             {page.title}
                           </a>
                         </Link>
-                      </li>
+                      </motion.li>
                     ))}
-                  </ul>
+                  </motion.ul>
                 </div>
               </motion.div>
             ) : null}
