@@ -1,11 +1,11 @@
 import { useRef } from 'react';
-
+import urlFor from '../../lib/urlFor';
 import Menu from '../Menu';
 import MobileMenu from '../MobileMenu';
 
 import styles from './index.module.css';
 
-const MenuContainer = ({ pages, home }) => {
+const MenuContainer = ({ pages, home, mainPhoto }) => {
   const defaultImage = useRef();
 
   return (
@@ -13,9 +13,9 @@ const MenuContainer = ({ pages, home }) => {
       <Menu defaultImage={defaultImage} pages={pages} home={home} />
       <MobileMenu defaultImage={defaultImage} pages={pages} home={home} />
 
-      {home && (
+      {home && mainPhoto.photo && (
         <div className={styles.defaultMenuImage} ref={defaultImage}>
-          <img src="/DSCF4725 1.jpg" />
+          <img src={urlFor(mainPhoto.photo).height(320).url()} />
         </div>
       )}
     </div>

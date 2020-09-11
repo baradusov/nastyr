@@ -77,3 +77,14 @@ export async function getInstagramPhotos(userId, number = 6) {
     return data;
   }
 }
+
+/**
+ * Get a main photo
+ *
+ * @returns {object}
+ */
+export async function getMainPhoto() {
+  const data = await sanity.fetch(`*[_type == 'mainPhoto']`);
+
+  return data[0];
+}

@@ -12,5 +12,9 @@ export const SettingsMenu = S.listItem()
           .title('Информация о сайте')
           .id('siteInfo')
           .schemaType('siteInfo'),
+        S.documentListItem()
+          .title('Фото на главной')
+          .id('mainPhoto')
+          .schemaType('mainPhoto'),
       ])
   );
