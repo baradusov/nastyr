@@ -32,7 +32,9 @@ export async function getAllPages() {
     `*[_type == 'page'] {
       _id,
       title,
-      'slug': slug.current
+      'slug': slug.current,
+      menuImage,
+      images[0]
     }`
   );
 

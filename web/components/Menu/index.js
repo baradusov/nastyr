@@ -1,16 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import urlFor from '../../lib/urlFor';
 
 import styles from './index.module.css';
 
 const Menu = ({ pages, home, defaultImage }) => {
-  const [isVisible, setIsVisible] = useState(false);
   const { asPath } = useRouter();
-  const [currentPage] = pages.filter((page) => {
-    return asPath === `/${page.slug}`;
-  });
-
   const handleMouseOver = () => {
     if (defaultImage.current) {
       defaultImage.current.style.opacity = 0;
@@ -21,10 +16,6 @@ const Menu = ({ pages, home, defaultImage }) => {
     if (defaultImage.current) {
       defaultImage.current.style.opacity = 1;
     }
-  };
-
-  const toggleMenu = () => {
-    setIsVisible((isVisible) => !isVisible);
   };
 
   return (
@@ -48,7 +39,11 @@ const Menu = ({ pages, home, defaultImage }) => {
             </Link>
             {home && (
               <div className={styles.menuImage}>
-                <img src="/IMG_5555 1.png" />
+                <img
+                  src={urlFor(page.menuImage || page.images)
+                    .height(320)
+                    .url()}
+                />
               </div>
             )}
           </li>

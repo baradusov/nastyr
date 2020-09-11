@@ -48,8 +48,15 @@ export default {
       title: 'Описание раздела',
       name: 'description',
       type: 'text',
-      validation: (Rule) =>
-        Rule.max(400).error('Максимум 400 символов'),
+      validation: (Rule) => Rule.max(400).error('Максимум 400 символов'),
+    },
+    {
+      title: 'Фотография для меню на главной',
+      name: 'menuImage',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     },
   ],
 };
