@@ -48,6 +48,8 @@ export default {
       title: 'Описание раздела',
       name: 'description',
       type: 'text',
+      validation: (Rule) =>
+        Rule.max(400).error('Максимум 400 символов'),
     },
   ],
 };
