@@ -56,41 +56,17 @@ const MobileMenu = ({ pages, home }) => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <motion.svg
-                  width="21"
-                  height="5"
+                <svg
+                  width="30"
+                  height="7"
                   fill="none"
+                  fillOpacity=".4"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle
-                    cx="2.5"
-                    cy="2.5"
-                    r="2.5"
-                    fill="#fff"
-                    fillOpacity=".4"
-                  />
-                  <motion.circle
-                    cx="10.5"
-                    cy="2.5"
-                    r="2.5"
-                    fill="#fff"
-                    fillOpacity=".4"
-                    initial={{ x: -10.5 }}
-                    animate={{ x: 0 }}
-                    exit={{ x: -10.5 }}
-                  />
-                  <motion.circle
-                    cx="18.5"
-                    cy="2.5"
-                    r="2.5"
-                    fill="#fff"
-                    fillOpacity=".4"
-                    initial={{ x: -18.5 }}
-                    animate={{ x: 0 }}
-                    exit={{ x: -18.5 }}
-                    transition={{ ease: 'easeOut' }}
-                  />
-                </motion.svg>
+                  <circle cx="3.5" cy="3.5" r="3.5" fill="#fff" />
+                  <circle cx="14.7" cy="3.5" r="3.5" fill="#fff" />
+                  <circle cx="25.9" cy="3.5" r="3.5" fill="#fff" />
+                </svg>
 
                 <p className={`${styles.menuLink} ${styles.isActive}`}>
                   {currentPage && currentPage.title}
@@ -109,36 +85,30 @@ const MobileMenu = ({ pages, home }) => {
               >
                 <div className={styles.secondMenuListContainer}>
                   <svg
-                    style={{ display: 'block' }}
-                    width="5"
-                    height="5"
+                    width="30"
+                    height="7"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <circle cx="2.5" cy="2.5" r="2.5" fill="#fff" />
+                    <circle cx="3.5" cy="3.5" r="3.5" fill="#fff" />
+                    <circle cx="14.7" cy="3.5" r="3.5" fill="#fff" />
+                    <circle cx="25.9" cy="3.5" r="3.5" fill="#fff" />
                   </svg>
 
-                  <motion.ul
-                    className={styles.menuList}
-                    initial={'hidden'}
-                    animate={'visible'}
-                    exit={'hidden'}
-                    variants={listVariants}
-                  >
+                  <ul className={styles.menuList}>
                     {pages.map((page) => (
-                      <motion.li
+                      <li
                         className={styles.menuItem}
                         key={page._id}
-                        variants={itemVariants}
                       >
                         <Link href="[slug]" as={page.slug}>
                           <a className={styles.menuLink} onClick={toggleMenu}>
                             {page.title}
                           </a>
                         </Link>
-                      </motion.li>
+                      </li>
                     ))}
-                  </motion.ul>
+                  </ul>
                 </div>
               </motion.div>
             ) : null}
