@@ -29,7 +29,7 @@ export async function getPageBySlug(slug) {
  */
 export async function getAllPages() {
   const data = await sanity.fetch(
-    `*[_type == 'page'] {
+    `*[_type == 'page'] | order(order asc) {
       _id,
       title,
       'slug': slug.current,
