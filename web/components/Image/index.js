@@ -29,8 +29,10 @@ const Image = ({ photo }) => {
     }
 
     return () => {
-      image.current.removeEventListener('mousedown', showCaption);
-      document.removeEventListener('mousedown', hideCaption);
+      if (image.current) {
+        image.current.removeEventListener('mousedown', showCaption);
+        document.removeEventListener('mousedown', hideCaption);
+      }
     };
   }, [isVisible]);
 
