@@ -1,0 +1,45 @@
+.mixes {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-top: 61px;
+}
+
+.embed {
+  min-width: 660px;
+  margin-right: 150px;
+  margin-bottom: 20px;
+}
+
+.stub {
+  flex-shrink: 0;
+  height: 100%;
+  width: 1px;
+}
+
+@media (max-width: 600px) {
+  .mixes {
+    flex-wrap: nowrap;
+    padding-top: 20px;
+    margin-bottom: 40px;
+    overflow-y: auto;
+    mask-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0.2) 5px,
+      rgba(0, 0, 0, 1) 25px,
+      rgba(0, 0, 0, 1) calc(100% - 25px),
+      rgba(0, 0, 0, 0.2) calc(100% - 5px),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .embed {
+    min-width: 0;
+    margin-right: 0;
+  }
+
+  .stub {
+    height: 60px;
+  }
+}

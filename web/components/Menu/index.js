@@ -5,6 +5,7 @@ import urlFor from '../../lib/urlFor';
 import styles from './index.module.css';
 
 const Menu = ({ pages, home, defaultImage }) => {
+  const { contentPages, mixesPage } = pages;
   const { asPath } = useRouter();
   const handleMouseOver = () => {
     if (defaultImage.current) {
@@ -21,7 +22,7 @@ const Menu = ({ pages, home, defaultImage }) => {
   return (
     <div className={`${home ? styles.isHome : ''} ${styles.menu}`}>
       <ul className={styles.menuList}>
-        {pages.map((page) => (
+        {contentPages.map((page) => (
           <li
             className={styles.menuItem}
             key={page._id}
@@ -48,6 +49,26 @@ const Menu = ({ pages, home, defaultImage }) => {
             )}
           </li>
         ))}
+        <li
+          className={styles.menuItem}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          <Link href={mixesPage.slug}>
+            <a
+              className={`${styles.menuLink} ${
+                asPath === `/${mixesPage.slug}` ? styles.isActive : ''
+              }`}
+            >
+              {mixesPage.title}
+            </a>
+          </Link>
+          {home && mixesPage.menuImage && (
+            <div className={styles.menuImage}>
+              <img src={urlFor(mixesPage.menuImage).height(320).url()} />
+            </div>
+          )}
+        </li>
       </ul>
     </div>
   );

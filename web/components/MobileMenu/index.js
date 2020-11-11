@@ -5,24 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import styles from './index.module.css';
 
-const listVariants = {
-  visible: {
-    transition: { staggerChildren: 0.07 },
-  },
-  hidden: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-  },
-};
-
-const itemVariants = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: 10 },
-};
-
 const MobileMenu = ({ pages, home }) => {
+  const { contentPages, mixesPage } = pages;
+  const allPages = [...contentPages, mixesPage];
   const [isVisible, setIsVisible] = useState(false);
   const { asPath } = useRouter();
-  const [currentPage] = pages.filter((page) => {
+  const [currentPage] = allPages.filter((page) => {
     return asPath === `/${page.slug}`;
   });
 
@@ -35,13 +23,20 @@ const MobileMenu = ({ pages, home }) => {
       {home ? (
         <div className={styles.menu}>
           <ul className={styles.menuList}>
-            {pages.map((page) => (
+            {contentPages.map((page) => (
               <li className={styles.menuItem} key={page._id}>
                 <Link href="[slug]" as={page.slug}>
                   <a className={styles.menuLink}>{page.title}</a>
                 </Link>
               </li>
             ))}
+            <li className={styles.menuItem}>
+              <Link href={mixesPage.slug}>
+                <a className={styles.menuLink} onClick={toggleMenu}>
+                  {mixesPage.title}
+                </a>
+              </Link>
+            </li>
           </ul>
         </div>
       ) : (
@@ -96,11 +91,8 @@ const MobileMenu = ({ pages, home }) => {
                   </svg>
 
                   <ul className={styles.menuList}>
-                    {pages.map((page) => (
-                      <li
-                        className={styles.menuItem}
-                        key={page._id}
-                      >
+                    {contentPages.map((page) => (
+                      <li className={styles.menuItem} key={page._id}>
                         <Link href="[slug]" as={page.slug}>
                           <a className={styles.menuLink} onClick={toggleMenu}>
                             {page.title}
@@ -108,6 +100,13 @@ const MobileMenu = ({ pages, home }) => {
                         </Link>
                       </li>
                     ))}
+                    <li className={styles.menuItem}>
+                      <Link href={mixesPage.slug}>
+                        <a className={styles.menuLink} onClick={toggleMenu}>
+                          {mixesPage.title}
+                        </a>
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </motion.div>

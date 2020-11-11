@@ -1,7 +1,7 @@
 import Image from '../components/Image';
 import styles from '../styles/Home.module.css';
 
-import { getPageBySlug, getAllPages } from '../lib/api';
+import { getPageBySlug, getcontentPages, getMixes } from '../lib/api';
 
 import Page from '../components/Page';
 
@@ -28,21 +28,26 @@ const Home = ({ data, pages }) => {
 
 export const getStaticProps = async ({ params }) => {
   const data = await getPageBySlug(params.slug);
-  const allPages = await getAllPages();
+  const mixesPage = await getMixes();
+  const contentPages = await getcontentPages();
+  const pages = {
+    contentPages,
+    mixesPage,
+  };
 
   return {
     props: {
       data: data,
-      pages: allPages,
+      pages: pages,
     },
   };
 };
 
 export const getStaticPaths = async () => {
-  const allPages = await getAllPages();
+  const contentPages = await getcontentPages();
 
   return {
-    paths: allPages.map((page) => {
+    paths: contentPages.map((page) => {
       return {
         params: {
           slug: page.slug,
