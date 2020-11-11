@@ -14,7 +14,7 @@ export const getStaticProps = async () => {
   const contentPages = await getcontentPages();
   const pages = {
     contentPages,
-    mixesPage,
+    mixesPage: mixesPage || null,
   };
 
   return {

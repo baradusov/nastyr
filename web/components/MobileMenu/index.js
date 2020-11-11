@@ -11,7 +11,9 @@ const MobileMenu = ({ pages, home }) => {
   const [isVisible, setIsVisible] = useState(false);
   const { asPath } = useRouter();
   const [currentPage] = allPages.filter((page) => {
-    return asPath === `/${page.slug}`;
+    if (page) {
+      return asPath === `/${page.slug}`;
+    }
   });
 
   const toggleMenu = () => {
@@ -30,13 +32,15 @@ const MobileMenu = ({ pages, home }) => {
                 </Link>
               </li>
             ))}
-            <li className={styles.menuItem}>
-              <Link href={mixesPage.slug}>
-                <a className={styles.menuLink} onClick={toggleMenu}>
-                  {mixesPage.title}
-                </a>
-              </Link>
-            </li>
+            {mixesPage && (
+              <li className={styles.menuItem}>
+                <Link href={mixesPage.slug}>
+                  <a className={styles.menuLink} onClick={toggleMenu}>
+                    {mixesPage.title}
+                  </a>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       ) : (
@@ -100,13 +104,15 @@ const MobileMenu = ({ pages, home }) => {
                         </Link>
                       </li>
                     ))}
-                    <li className={styles.menuItem}>
-                      <Link href={mixesPage.slug}>
-                        <a className={styles.menuLink} onClick={toggleMenu}>
-                          {mixesPage.title}
-                        </a>
-                      </Link>
-                    </li>
+                    {mixesPage && (
+                      <li className={styles.menuItem}>
+                        <Link href={mixesPage.slug}>
+                          <a className={styles.menuLink} onClick={toggleMenu}>
+                            {mixesPage.title}
+                          </a>
+                        </Link>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </motion.div>

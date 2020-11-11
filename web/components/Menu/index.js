@@ -49,26 +49,28 @@ const Menu = ({ pages, home, defaultImage }) => {
             )}
           </li>
         ))}
-        <li
-          className={styles.menuItem}
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOut}
-        >
-          <Link href={mixesPage.slug}>
-            <a
-              className={`${styles.menuLink} ${
-                asPath === `/${mixesPage.slug}` ? styles.isActive : ''
-              }`}
-            >
-              {mixesPage.title}
-            </a>
-          </Link>
-          {home && mixesPage.menuImage && (
-            <div className={styles.menuImage}>
-              <img src={urlFor(mixesPage.menuImage).height(320).url()} />
-            </div>
-          )}
-        </li>
+        {mixesPage && (
+          <li
+            className={styles.menuItem}
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}
+          >
+            <Link href={mixesPage.slug}>
+              <a
+                className={`${styles.menuLink} ${
+                  asPath === `/${mixesPage.slug}` ? styles.isActive : ''
+                }`}
+              >
+                {mixesPage.title}
+              </a>
+            </Link>
+            {home && mixesPage.menuImage && (
+              <div className={styles.menuImage}>
+                <img src={urlFor(mixesPage.menuImage).height(320).url()} />
+              </div>
+            )}
+          </li>
+        )}
       </ul>
     </div>
   );

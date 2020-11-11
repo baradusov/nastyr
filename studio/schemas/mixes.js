@@ -85,5 +85,10 @@ export default {
         hotspot: true,
       },
     },
+    {
+      title: 'Отображать на сайте',
+      name: 'enabled',
+      type: 'boolean',
+    },
   ],
 };

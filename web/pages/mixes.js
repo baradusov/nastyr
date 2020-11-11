@@ -25,12 +25,12 @@ export const getStaticProps = async () => {
   const contentPages = await getcontentPages();
   const pages = {
     contentPages,
-    mixesPage,
+    mixesPage: mixesPage || null,
   };
 
   return {
     props: {
-      data: mixesPage.mixes,
+      data: mixesPage ? mixesPage.mixes : [],
       pages: pages,
     },
   };

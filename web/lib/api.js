@@ -47,7 +47,7 @@ export async function getcontentPages() {
  * @returns {object}
  */
 export async function getMixes() {
-  const data = await sanity.fetch(`*[_type == 'mixes'] {
+  const data = await sanity.fetch(`*[_type == 'mixes' && enabled == true] {
     _id,
     mixes,
     title,
