@@ -45,11 +45,6 @@ const Image = ({ photo }) => {
     >
       <motion.img
         className={styles.galleryImage}
-        srcSet={`
-        ${urlFor(photo).width(480).url()} 480w,
-        ${urlFor(photo).width(600).url()} 600w,
-        ${urlFor(photo).url()} 1200w
-        `}
         src={urlFor(photo).url()}
         layout
       />
