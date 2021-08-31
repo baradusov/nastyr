@@ -28,6 +28,12 @@ export const getStaticProps = async () => {
     mixesPage: mixesPage || null,
   };
 
+  if (!mixesPage) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       data: mixesPage ? mixesPage.mixes : [],

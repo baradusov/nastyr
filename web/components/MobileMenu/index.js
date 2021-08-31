@@ -25,13 +25,17 @@ const MobileMenu = ({ pages, home }) => {
       {home ? (
         <div className={styles.menu}>
           <ul className={styles.menuList}>
-            {contentPages.map((page) => (
-              <li className={styles.menuItem} key={page._id}>
-                <Link href="[slug]" as={page.slug}>
-                  <a className={styles.menuLink}>{page.title}</a>
-                </Link>
-              </li>
-            ))}
+            {contentPages.map((page) => {
+              if (page.enabled) {
+                return (
+                  <li className={styles.menuItem} key={page._id}>
+                    <Link href="[slug]" as={page.slug}>
+                      <a className={styles.menuLink}>{page.title}</a>
+                    </Link>
+                  </li>
+                );
+              }
+            })}
             {mixesPage && (
               <li className={styles.menuItem}>
                 <Link href={mixesPage.slug}>
@@ -95,15 +99,22 @@ const MobileMenu = ({ pages, home }) => {
                   </svg>
 
                   <ul className={styles.menuList}>
-                    {contentPages.map((page) => (
-                      <li className={styles.menuItem} key={page._id}>
-                        <Link href="[slug]" as={page.slug}>
-                          <a className={styles.menuLink} onClick={toggleMenu}>
-                            {page.title}
-                          </a>
-                        </Link>
-                      </li>
-                    ))}
+                    {contentPages.map((page) => {
+                      if (page.enabled) {
+                        return (
+                          <li className={styles.menuItem} key={page._id}>
+                            <Link href="[slug]" as={page.slug}>
+                              <a
+                                className={styles.menuLink}
+                                onClick={toggleMenu}
+                              >
+                                {page.title}
+                              </a>
+                            </Link>
+                          </li>
+                        );
+                      }
+                    })}
                     {mixesPage && (
                       <li className={styles.menuItem}>
                         <Link href={mixesPage.slug}>

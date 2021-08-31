@@ -64,5 +64,10 @@ export default {
       type: 'number',
       hidden: true,
     },
+    {
+      title: 'Отображать в меню',
+      name: 'enabled',
+      type: 'boolean',
+    },
   ],
 };

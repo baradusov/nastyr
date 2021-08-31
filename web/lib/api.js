@@ -34,7 +34,8 @@ export async function getcontentPages() {
       title,
       'slug': slug.current,
       menuImage,
-      images[0]
+      images[0],
+      enabled
     }`
   );
 

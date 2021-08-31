@@ -22,33 +22,37 @@ const Menu = ({ pages, home, defaultImage }) => {
   return (
     <div className={`${home ? styles.isHome : ''} ${styles.menu}`}>
       <ul className={styles.menuList}>
-        {contentPages.map((page) => (
-          <li
-            className={styles.menuItem}
-            key={page._id}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            <Link href="[slug]" as={page.slug}>
-              <a
-                className={`${styles.menuLink} ${
-                  asPath === `/${page.slug}` ? styles.isActive : ''
-                }`}
+        {contentPages.map((page) => {
+          if (page.enabled) {
+            return (
+              <li
+                className={styles.menuItem}
+                key={page._id}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
               >
-                {page.title}
-              </a>
-            </Link>
-            {home && (
-              <div className={styles.menuImage}>
-                <img
-                  src={urlFor(page.menuImage || page.images)
-                    .height(320)
-                    .url()}
-                />
-              </div>
-            )}
-          </li>
-        ))}
+                <Link href="[slug]" as={page.slug}>
+                  <a
+                    className={`${styles.menuLink} ${
+                      asPath === `/${page.slug}` ? styles.isActive : ''
+                    }`}
+                  >
+                    {page.title}
+                  </a>
+                </Link>
+                {home && (
+                  <div className={styles.menuImage}>
+                    <img
+                      src={urlFor(page.menuImage || page.images)
+                        .height(320)
+                        .url()}
+                    />
+                  </div>
+                )}
+              </li>
+            );
+          }
+        })}
         {mixesPage && (
           <li
             className={styles.menuItem}
