@@ -9,7 +9,7 @@ const Page = ({ pages, children, title, home, mainPhoto }) => {
     <>
       <Head>
         <title>
-          {title ? `nastya razubaeva | ${title}` : 'nastya razubaeva'}
+          {title ? `anastasia razubaeva | ${title}` : 'anastasia razubaeva'}
         </title>
         <link rel="icon" href="/favicon.ico" />
         <meta
