@@ -17,6 +17,25 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.youtubeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin-right: 302px;
+}
+
+.youtube {
+  width: 1200px;
+  height: 100%;
+}
+
+@media (max-width: 960px) {
+  .youtube {
+    width: 900px;
+  }
+}
+
 @media (max-width: 600px) {
   .gallery {
     padding-top: 57px;
@@ -28,5 +47,15 @@
 
   .description {
     min-width: 320px;
+  }
+
+  .youtube {
+    width: 550px;
+  }
+}
+
+@media (max-width: 360px) {
+  .youtube {
+    width: 320px;
   }
 }

@@ -21,12 +21,13 @@ export default {
       validation: (Rule) => Rule.required().error('Алиас страницы обязателен'),
     },
     {
-      title: 'Фотографии',
+      title: 'Контент',
       name: 'images',
       description: 'Минимум одна фотография',
       type: 'array',
       of: [
         {
+          title: 'Фото',
           type: 'image',
           options: {
             hotspot: true,
@@ -39,6 +40,10 @@ export default {
               options: { isHighlighted: true },
             },
           ],
+        },
+        {
+        {
+          type: 'youtube',
         },
       ],
       validation: (Rule) =>
