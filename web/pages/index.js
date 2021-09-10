@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       pages: pages,
-      mainPhoto: mainPhoto,
+      mainPhoto: mainPhoto || null,
     },
   };
 };
