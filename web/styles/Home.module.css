@@ -17,6 +17,11 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.textBlock {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .youtubeContainer {
   display: flex;
   flex-direction: column;

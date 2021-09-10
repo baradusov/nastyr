@@ -1,3 +1,4 @@
+import BlockContent from '@sanity/block-content-to-react';
 import getYoutubeId from 'get-youtube-id';
 import YouTube from 'react-youtube';
 import Image from '../components/Image';
@@ -14,6 +15,14 @@ const ContentPage = ({ data, pages }) => {
     <Page pages={pages} title={title}>
       <div className={styles.gallery}>
         {images.map((content) => {
+          if (content._type === 'textPost') {
+            return (
+              <div className={styles.textBlock}>
+                <BlockContent key={content._key} blocks={content.body} />
+              </div>
+            );
+          }
+
           if (content._type === 'youtube') {
             const { url } = content;
             const id = getYoutubeId(url);

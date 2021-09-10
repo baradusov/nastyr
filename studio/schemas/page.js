@@ -42,6 +42,21 @@ export default {
           ],
         },
         {
+          title: 'Текст',
+          name: 'textPost',
+          type: 'object',
+          fields: [
+            {
+              name: 'body',
+              type: 'blockContent',
+              title: 'Текст',
+              options: { isHighlighted: true },
+            },
+          ],
+          preview: {
+            select: { title: 'body' },
+          },
+        },
         {
           type: 'youtube',
         },
