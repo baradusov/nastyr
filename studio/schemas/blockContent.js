@@ -54,9 +54,15 @@ export default {
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-    {
-      type: 'image',
-      options: {hotspot: true}
-    }
-  ]
+    // {
+    //   type: 'image',
+    //   options: {hotspot: true}
+    // }
+  ],
+  validation: Rule => Rule.custom((block) => {
+    const texts = block.map((el) => el.children).flat();
+    const textLength = texts.reduce((all, block) => all + block.text, '').length;
+
+    return textLength <= 1000 ? true : 'Текст больше 1000 символов, проверь, как он выглядит на малых экранах.';
+  }).warning(),
 }
