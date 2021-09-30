@@ -19,6 +19,32 @@ const Menu = ({ pages, home, defaultImage }) => {
     }
   };
 
+  const renderMenuImage = (page) => {
+    if (home) {
+      if (page.menuImage) {
+        return (
+          <div className={styles.menuImage}>
+            <img src={urlFor(page.menuImage).height(320).url()} />
+          </div>
+        );
+      }
+
+      const menuImage = page.images.find(({ _type }) => _type === 'image');
+
+      if (menuImage) {
+        return (
+          <div className={styles.menuImage}>
+            <img src={urlFor(menuImage).height(320).url()} />
+          </div>
+        );
+      }
+
+      return null;
+    }
+
+    return null;
+  };
+
   return (
     <div className={`${home ? styles.isHome : ''} ${styles.menu}`}>
       <ul className={styles.menuList}>
@@ -40,15 +66,7 @@ const Menu = ({ pages, home, defaultImage }) => {
                     {page.title}
                   </a>
                 </Link>
-                {home && (
-                  <div className={styles.menuImage}>
-                    <img
-                      src={urlFor(page.menuImage || page.images)
-                        .height(320)
-                        .url()}
-                    />
-                  </div>
-                )}
+                {renderMenuImage(page)}
               </li>
             );
           }

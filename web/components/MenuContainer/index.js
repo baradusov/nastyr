@@ -9,7 +9,8 @@ const MenuContainer = ({ pages, home, mainPhoto }) => {
   const defaultImage = useRef();
 
   const renderDefaultMenuImage = () => {
-    if (home && mainPhoto) {
+    if (home && mainPhoto && mainPhoto.photo) {
+
       return (
         <div className={styles.defaultMenuImage} ref={defaultImage}>
           <img src={urlFor(mainPhoto.photo).height(320).url()} />
