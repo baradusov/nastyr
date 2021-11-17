@@ -77,3 +77,9 @@
     min-width: 320px;
   }
 }
+
+@media (max-height: 900px) {
+  .youtube {
+    width: 700px;
+  }
+}
