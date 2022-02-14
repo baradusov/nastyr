@@ -64,7 +64,7 @@
   }
 
   .textBlock {
-    max-width: 90vw;
+    min-width: 90vw;
     margin-right: 50px;
   }
 }
