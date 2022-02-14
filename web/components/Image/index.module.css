@@ -21,5 +21,6 @@
 @media (max-width: 600px) {
   .galleryImageContainer {
     margin-right: 50px;
+    max-width: 90vw;
   }
 }

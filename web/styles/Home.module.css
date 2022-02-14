@@ -60,10 +60,11 @@
   }
 
   .youtube {
-    width: 550px;
+    max-width: 90vw;
   }
 
   .textBlock {
+    max-width: 90vw;
     margin-right: 50px;
   }
 }
