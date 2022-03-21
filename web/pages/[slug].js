@@ -14,11 +14,11 @@ const ContentPage = ({ data, pages }) => {
   return (
     <Page pages={pages} title={title}>
       <div className={styles.gallery}>
-        {images.map((content) => {
+        {images.map((content, key) => {
           if (content._type === 'textPost') {
             return (
-              <div className={styles.textBlock}>
-                <BlockContent key={content._key} blocks={content.body} />
+              <div key={content._key} className={styles.textBlock}>
+                <BlockContent blocks={content.body} />
               </div>
             );
           }
