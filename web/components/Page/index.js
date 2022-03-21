@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from 'next/script';
 
 import styles from './index.module.css';
 import Header from '../Header';
@@ -16,19 +17,6 @@ const Page = ({ pages, children, title, home, mainPhoto }) => {
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-   ym(73542565, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });`,
-          }}
-        ></script>
         <noscript>
           <div>
             <img
@@ -47,6 +35,15 @@ const Page = ({ pages, children, title, home, mainPhoto }) => {
 
         {children}
       </main>
+      <Script id="metrika">{`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(73542565, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });`}</Script>
     </>
   );
 };
