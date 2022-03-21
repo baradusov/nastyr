@@ -1,4 +1,5 @@
 import MixcloudEmbed from '../components/MixcloudEmbed';
+import SoundcloudEmbed from '../components/SoundcloudEmbed';
 import styles from '../styles/Mixes.module.css';
 
 import { getMixes, getcontentPages } from '../lib/api';
@@ -9,11 +10,21 @@ const Home = ({ data, pages }) => {
   return (
     <Page pages={pages} title={'mixes'}>
       <div className={styles.mixes}>
-        {data.map(({ url, _key }) => (
-          <div className={styles.embed} key={_key}>
-            <MixcloudEmbed url={url} />
-          </div>
-        ))}
+        {data.map(({ url, _key }) => {
+          if (url.includes('soundcloud')) {
+            return (
+              <div className={styles.embed} key={_key}>
+                <SoundcloudEmbed url={url} />
+              </div>
+            );
+          }
+
+          return (
+            <div className={styles.embed} key={_key}>
+              <MixcloudEmbed url={url} />
+            </div>
+          );
+        })}
         <div className={styles.stub}></div>
       </div>
     </Page>

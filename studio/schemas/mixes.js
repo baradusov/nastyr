@@ -1,5 +1,19 @@
 import React from 'react';
 
+const PlayerEmbed = (props) => {
+  const { url } = props.value;
+
+  if (!url) {
+    return <p>Не указана ссылка на микс</p>;
+  }
+
+  if (url.includes('soundcloud')) {
+    return <SoundcloudEmbed {...props} />;
+  }
+
+  return <MixcloudEmbed {...props} />;
+};
+
 const MixcloudEmbed = (props) => {
   try {
     const { url } = props.value;
@@ -13,13 +27,37 @@ const MixcloudEmbed = (props) => {
     return (
       <div style={{ width: '100%', paddingRight: 30, cursor: 'pointer' }}>
         <iframe
-          width="100%"
+          width="90%"
           height="60"
           src={`https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=${encodeURIComponent(
             relativeUrl
           )}`}
           frameBorder="0"
         />
+      </div>
+    );
+  } catch (error) {
+    return <p>Какая-то неправильная у вас ссылка</p>;
+  }
+};
+
+const SoundcloudEmbed = (props) => {
+  try {
+    const { url } = props.value;
+
+    if (!url) {
+      return <p>Не указана ссылка на микс</p>;
+    }
+
+    return (
+      <div style={{ width: '100%', paddingRight: 30, cursor: 'pointer' }}>
+        <iframe
+          width="90%"
+          height="60"
+          scrolling="no"
+          frameBorder="0"
+          src={`https://w.soundcloud.com/player/?url=${url}&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true`}
+        ></iframe>
       </div>
     );
   } catch (error) {
@@ -57,7 +95,7 @@ export default {
       description: 'Минимум один микс',
       type: 'array',
       validation: (Rule) =>
-        Rule.required().error('Выберите как минимум одну фотографию'),
+        Rule.required().error('Добавьте, как минимум, один микс'),
       of: [
         {
           type: 'object',
@@ -72,7 +110,7 @@ export default {
             select: {
               url: 'url',
             },
-            component: MixcloudEmbed,
+            component: PlayerEmbed,
           },
         },
       ],
