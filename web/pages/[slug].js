@@ -4,7 +4,7 @@ import YouTube from 'react-youtube';
 import Image from '../components/Image';
 import styles from '../styles/Home.module.css';
 
-import { getPageBySlug, getcontentPages, getMixes } from '../lib/api';
+import { getPageBySlug, getContentPages, getMixes } from '../lib/api';
 
 import Page from '../components/Page';
 
@@ -54,7 +54,7 @@ const ContentPage = ({ data, pages }) => {
 export const getStaticProps = async ({ params }) => {
   const data = await getPageBySlug(params.slug);
   const mixesPage = await getMixes();
-  const contentPages = await getcontentPages();
+  const contentPages = await getContentPages();
   const pages = {
     contentPages,
     mixesPage: mixesPage || null,
@@ -69,7 +69,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const contentPages = await getcontentPages();
+  const contentPages = await getContentPages();
 
   return {
     paths: contentPages.map((page) => {

@@ -1,4 +1,4 @@
-import { getcontentPages, getMainPhoto, getMixes } from '../lib/api';
+import { getContentPages, getMainPhoto } from '../lib/api';
 
 import Page from '../components/Page';
 
@@ -11,7 +11,7 @@ const Home = (props) => {
 export const getStaticProps = async () => {
   const mainPhoto = await getMainPhoto();
   const mixesPage = await getMixes();
-  const contentPages = await getcontentPages();
+  const contentPages = await getContentPages();
   const pages = {
     contentPages,
     mixesPage: mixesPage || null,

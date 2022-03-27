@@ -27,7 +27,7 @@ export async function getPageBySlug(slug) {
  * @param {slug} slug слаг из Sanity (используется для url)
  * @returns {object}
  */
-export async function getcontentPages() {
+export async function getContentPages() {
   const data = await sanity.fetch(
     `*[_type == 'page'] | order(order asc) {
       _id,
