@@ -7,4 +7,13 @@ module.exports = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/bio',
+        destination: '/about',
+        permanent: true,
+      },
+    ];
+  },
 };

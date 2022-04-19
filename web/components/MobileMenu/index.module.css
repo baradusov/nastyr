@@ -8,12 +8,11 @@
   .menu {
     display: block;
     align-self: flex-start;
-    min-width: 232px;
   }
 
   .secondMenuContainer {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     display: block;
     bottom: 30px;
     left: 0;
@@ -49,7 +48,7 @@
   }
 
   .menuLink {
-    font-family: 'Helvetica Neue Light';
+    font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: normal;
     font-size: 18px;

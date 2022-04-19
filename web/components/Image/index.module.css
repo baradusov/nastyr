@@ -1,4 +1,5 @@
 .galleryImageContainer {
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,19 +9,18 @@
 
 .galleryImage {
   height: 100%;
-  max-width: none;
+  max-width: 100vw;
   object-fit: contain;
 }
 
 .caption {
   margin-top: 30px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.9)
+  color: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 600px) {
   .galleryImageContainer {
     margin-right: 50px;
-    max-width: 90vw;
   }
 }

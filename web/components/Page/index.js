@@ -1,18 +1,37 @@
-import styles from './index.module.css';
 import Header from '../Header';
+import Contacts from '../Contacts';
 import MenuContainer from '../MenuContainer';
 
-const Page = ({ pages, children, title, home, mainPhoto }) => {
+import styles from './index.module.css';
+
+const Page = ({ pages, children, home, mainPhoto, isFixed }) => {
   return (
-    <>
-      <Header />
+    <div className={styles.page}>
+      <div className={`${styles.header} ${isFixed ? styles.isFixed : ''}`}>
+        <Header />
+      </div>
 
-      <main className={styles.main}>
-        <MenuContainer pages={pages} home={home} mainPhoto={mainPhoto} />
+      <div className={styles.menu}>
+        <MenuContainer
+          pages={pages}
+          home={home}
+          isFixed
+          mainPhoto={mainPhoto}
+        />
+      </div>
 
-        {children}
-      </main>
-    </>
+      <div className={styles.main}>
+        <main>{children}</main>
+      </div>
+
+      {!isFixed && (
+        <div className={styles.aside}>
+          <aside>
+            <Contacts />
+          </aside>
+        </div>
+      )}
+    </div>
   );
 };
 

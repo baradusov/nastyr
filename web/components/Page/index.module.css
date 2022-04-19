@@ -1,28 +1,52 @@
-.text {
-  font-family: 'Helvetica Neue Light';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 1.2;
-  color: rgba(255, 255, 255, 0.4);
-  transition: color 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.text:hover {
-  color: #ffffff;
-}
-
-.main {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  /* 21px текущая высота хедера, нужно избавиться от магического числа*/
+.page {
+  display: grid;
+  grid-template-columns: 302px 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  gap: 16px;
   height: 100%;
 }
 
-@media (max-width: 600px) {
+.header {
+  z-index: 1;
+}
+
+.header.isFixed {
+  position: fixed;
+}
+
+.menu {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+.main {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 2;
+}
+
+.main main {
+  height: 100%;
+}
+
+.aside {
+  z-index: 1;
+  grid-column-start: 3;
+}
+
+@media (max-width: 960px) {
+  .page {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+  }
+
   .main {
-    flex-direction: column-reverse;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .aside {
+    text-align: right;
   }
 }

@@ -1,6 +1,17 @@
-import { getContentPages, getMainPhoto } from '../lib/api';
+import { getContentPages, getMixes, getMainPhoto } from '../lib/api';
 
 import Page from '../components/Page';
+
+const pageComponents = {
+  photo: (props) => <>photos</>,
+  text: (props) => <>text</>,
+};
+
+const getContent = (type, props) => {
+  if (!type) return null;
+
+  return pageComponents[type];
+};
 
 const Home = (props) => {
   const { pages, mainPhoto } = props;

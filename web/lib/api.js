@@ -60,6 +60,22 @@ export async function getMixes() {
 }
 
 /**
+ * Get about page
+ *
+ * @returns {object}
+ */
+export async function getAboutPage() {
+  const data = await sanity.fetch(`*[_type == 'about'] {
+    _id,
+    title,
+    body,
+    links,
+  }`);
+
+  return data[0];
+}
+
+/**
  * Get the instagram photos
  *
  * @param {string} userId User id from query url

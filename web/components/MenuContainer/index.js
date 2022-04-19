@@ -10,10 +10,9 @@ const MenuContainer = ({ pages, home, mainPhoto }) => {
 
   const renderDefaultMenuImage = () => {
     if (home && mainPhoto && mainPhoto.photo) {
-
       return (
         <div className={styles.defaultMenuImage} ref={defaultImage}>
-          <img src={urlFor(mainPhoto.photo).height(320).url()} />
+          <img src={urlFor(mainPhoto.photo).url()} />
         </div>
       );
     }
@@ -21,7 +20,7 @@ const MenuContainer = ({ pages, home, mainPhoto }) => {
 
   return (
     <div className={`${styles.menuContainer} ${home ? styles.isHome : ''}`}>
-      <Menu defaultImage={defaultImage} pages={pages} home={home} />
+      <Menu defaultImage={defaultImage} pages={pages} home={home} isFixed />
       <MobileMenu defaultImage={defaultImage} pages={pages} home={home} />
 
       {renderDefaultMenuImage()}

@@ -1,52 +1,7 @@
 .menuContainer {
-  position: relative;
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-.menuContainer.isHome {
-  height: 100%;
-}
-
-.menu {
-  align-self: flex-end;
-  min-width: 232px;
-}
-
-.menuItem {
-  margin-bottom: 10px;
-}
-
-.menuLink {
-  font-family: 'Helvetica Neue Light';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 1.2;
-  color: rgba(255, 255, 255, 0.9);
-  transition: color 0.3s ease-in-out;
-}
-
-.menuLink.isActive {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.menuLink:hover {
-  color: #ffffff;
-}
-
-.menuImage {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  max-width: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease-in;
-}
-
-.menuLink:hover ~ .menuImage {
-  opacity: 1;
 }
 
 .defaultMenuImage {
@@ -58,15 +13,6 @@
 @media (max-width: 600px) {
   .menuContainer {
     flex-direction: column-reverse;
-  }
-
-  .menuContainer.isHome {
-    padding-top: 75px;
-  }
-
-  .menu {
-    align-self: flex-start;
-    min-width: 232px;
   }
 
   .defaultMenuImage {

@@ -12,7 +12,7 @@ const ContentPage = ({ data, pages }) => {
   const { title, images, description } = data;
 
   return (
-    <Page pages={pages} title={title}>
+    <Page pages={pages} title={title} isFixed>
       <div className={styles.gallery}>
         {images.map((content, key) => {
           if (content._type === 'textPost') {
@@ -33,6 +33,7 @@ const ContentPage = ({ data, pages }) => {
                 className={styles.youtube}
                 containerClassName={styles.youtubeContainer}
                 videoId={id}
+                opts={{ width: 720, height: 480 }}
               />
             );
           }
