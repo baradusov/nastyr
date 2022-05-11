@@ -1,53 +1,79 @@
 import BlockContent from '@sanity/block-content-to-react';
 import getYoutubeId from 'get-youtube-id';
 import YouTube from 'react-youtube';
-import Image from '../components/Image';
-import styles from '../styles/Home.module.css';
 
 import { getPageBySlug, getContentPages, getMixes } from '../lib/api';
-
 import Page from '../components/Page';
+import Fancybox from '../components/Fancybox';
+import Image from '../components/Image';
+import styles from '../styles/Home.module.css';
 
 const ContentPage = ({ data, pages }) => {
   const { title, images, description } = data;
 
   return (
     <Page pages={pages} title={title} isFixed>
-      <div className={styles.gallery}>
-        {images.map((content, key) => {
-          if (content._type === 'textPost') {
-            return (
-              <div key={content._key} className={styles.textBlock}>
-                <BlockContent blocks={content.body} />
-              </div>
-            );
-          }
+      <Fancybox
+        options={{
+          Html: {
+            video: {
+              autoplay: false,
+            },
+          },
+        }}
+      >
+        <div className={styles.gallery}>
+          {images.map((content, key) => {
+            if (content._type === 'textPost') {
+              return (
+                <div key={content._key} className={styles.textBlock}>
+                  <div
+                    id={`text-content-${content._key}`}
+                    className="fancybox__content--text"
+                    data-fancybox="gallery"
+                    data-src={`#text-content-${content._key}`}
+                    data-type="clone"
+                  >
+                    <BlockContent blocks={content.body} />
+                  </div>
+                </div>
+              );
+            }
 
-          if (content._type === 'youtube') {
-            const { url } = content;
-            const id = getYoutubeId(url);
+            if (content._type === 'youtube') {
+              const { url } = content;
+              const id = getYoutubeId(url);
+
+              return (
+                <a data-fancybox="gallery" href={url}>
+                  <YouTube
+                    key={content._key}
+                    className={styles.youtube}
+                    containerClassName={styles.youtubeContainer}
+                    videoId={id}
+                    opts={{ width: 720, height: 480 }}
+                  />
+                </a>
+              );
+            }
 
             return (
-              <YouTube
+              <Image
                 key={content._key}
-                className={styles.youtube}
-                containerClassName={styles.youtubeContainer}
-                videoId={id}
-                opts={{ width: 720, height: 480 }}
+                photo={content}
+                data-fancybox="gallery"
               />
             );
-          }
-
-          return <Image key={content._key} photo={content} />;
-        })}
-        {description && (
-          <div className={styles.description}>
-            <p className={styles.descriptionText}>{description}</p>
-          </div>
-        )}
-        {/* чтобы после последней фотографии был отступ */}
-        <div style={{ height: '100%', width: 1, flexShrink: 0 }}></div>
-      </div>
+          })}
+          {description && (
+            <div className={styles.description}>
+              <p className={styles.descriptionText}>{description}</p>
+            </div>
+          )}
+          {/* чтобы после последней фотографии был отступ */}
+          <div style={{ height: '100%', width: 1, flexShrink: 0 }}></div>
+        </div>
+      </Fancybox>
     </Page>
   );
 };
