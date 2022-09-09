@@ -1,12 +1,13 @@
-import BlockContent from '@sanity/block-content-to-react';
 import getYoutubeId from 'get-youtube-id';
 import YouTube from 'react-youtube';
+
+import Page from '../components/Page';
 import Image from '../components/Image';
+import PageText from '../components/PageText';
+
 import styles from '../styles/Home.module.css';
 
 import { getPageBySlug, getcontentPages, getMixes } from '../lib/api';
-
-import Page from '../components/Page';
 
 const ContentPage = ({ data, pages }) => {
   const { title, images, description } = data;
@@ -18,7 +19,7 @@ const ContentPage = ({ data, pages }) => {
           if (content._type === 'textPost') {
             return (
               <div key={content._key} className={styles.textBlock}>
-                <BlockContent blocks={content.body} />
+                <PageText content={content.body} />
               </div>
             );
           }
@@ -41,10 +42,10 @@ const ContentPage = ({ data, pages }) => {
         })}
         {description && (
           <div className={styles.textBlock}>
-            <BlockContent blocks={description} />
+            <PageText content={description} />
           </div>
         )}
-        {/* чтобы после последней фотографии был отступ */}
+        {/* чтобы после последней фотографии был отступ */}serializer
         <div style={{ height: '100%', width: 1, flexShrink: 0 }}></div>
       </div>
     </Page>
