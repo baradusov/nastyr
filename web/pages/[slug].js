@@ -40,8 +40,8 @@ const ContentPage = ({ data, pages }) => {
           return <Image key={content._key} photo={content} />;
         })}
         {description && (
-          <div className={styles.description}>
-            <p className={styles.descriptionText}>{description}</p>
+          <div className={styles.textBlock}>
+            <BlockContent blocks={description} />
           </div>
         )}
         {/* чтобы после последней фотографии был отступ */}
