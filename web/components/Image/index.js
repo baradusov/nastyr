@@ -4,7 +4,7 @@ import urlFor from '../../lib/urlFor';
 
 import styles from './index.module.css';
 
-const Image = ({ photo }) => {
+const Image = ({ photo, ...restProps }) => {
   const [isVisible, setIsVisible] = useState(false);
   const image = useRef();
 
@@ -44,9 +44,10 @@ const Image = ({ photo }) => {
       ref={image}
     >
       <motion.img
+        layout
         className={styles.galleryImage}
         src={urlFor(photo).url()}
-        layout
+        {...restProps}
       />
       {photo.caption && isVisible ? (
         <motion.p

@@ -2,7 +2,7 @@ import MixcloudEmbed from '../components/MixcloudEmbed';
 import SoundcloudEmbed from '../components/SoundcloudEmbed';
 import styles from '../styles/Mixes.module.css';
 
-import { getMixes, getcontentPages } from '../lib/api';
+import { getMixes, getContentPages } from '../lib/api';
 
 import Page from '../components/Page';
 
@@ -33,7 +33,7 @@ const Home = ({ data, pages }) => {
 
 export const getStaticProps = async () => {
   const mixesPage = await getMixes();
-  const contentPages = await getcontentPages();
+  const contentPages = await getContentPages();
   const pages = {
     contentPages,
     mixesPage: mixesPage || null,

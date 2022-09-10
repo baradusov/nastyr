@@ -4,7 +4,7 @@ import urlFor from '../../lib/urlFor';
 
 import styles from './index.module.css';
 
-const Menu = ({ pages, home, defaultImage }) => {
+const Menu = ({ pages, home, defaultImage, isFixed }) => {
   const { contentPages, mixesPage } = pages;
   const { asPath } = useRouter();
   const handleMouseOver = () => {
@@ -24,7 +24,7 @@ const Menu = ({ pages, home, defaultImage }) => {
       if (page.menuImage) {
         return (
           <div className={styles.menuImage}>
-            <img src={urlFor(page.menuImage).height(320).url()} />
+            <img src={urlFor(page.menuImage).url()} />
           </div>
         );
       }
@@ -34,7 +34,7 @@ const Menu = ({ pages, home, defaultImage }) => {
       if (menuImage) {
         return (
           <div className={styles.menuImage}>
-            <img src={urlFor(menuImage).height(320).url()} />
+            <img src={urlFor(menuImage).url()} />
           </div>
         );
       }
@@ -46,7 +46,11 @@ const Menu = ({ pages, home, defaultImage }) => {
   };
 
   return (
-    <div className={`${home ? styles.isHome : ''} ${styles.menu}`}>
+    <div
+      className={`${home ? styles.isHome : ''} ${styles.menu} ${
+        isFixed ? styles.isFixed : ''
+      }`}
+    >
       <ul className={styles.menuList}>
         {contentPages.map((page) => {
           if (page.enabled) {
@@ -88,7 +92,7 @@ const Menu = ({ pages, home, defaultImage }) => {
             </Link>
             {home && mixesPage.menuImage && (
               <div className={styles.menuImage}>
-                <img src={urlFor(mixesPage.menuImage).height(320).url()} />
+                <img src={urlFor(mixesPage.menuImage).url()} />
               </div>
             )}
           </li>
