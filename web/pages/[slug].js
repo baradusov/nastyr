@@ -1,12 +1,14 @@
-import BlockContent from '@sanity/block-content-to-react';
 import getYoutubeId from 'get-youtube-id';
 import YouTube from 'react-youtube';
 
-import { getPageBySlug, getContentPages, getMixes } from '../lib/api';
 import Page from '../components/Page';
 import Fancybox from '../components/Fancybox';
 import Image from '../components/Image';
+import PageText from '../components/PageText';
+
 import styles from '../styles/Home.module.css';
+
+import { getPageBySlug, getContentPages, getMixes } from '../lib/api';
 
 const ContentPage = ({ data, pages }) => {
   const { title, images, description } = data;
@@ -34,7 +36,7 @@ const ContentPage = ({ data, pages }) => {
                     data-src={`#text-content-${content._key}`}
                     data-type="clone"
                   >
-                    <BlockContent blocks={content.body} />
+                    <PageText content={content.body} />
                   </div>
                 </div>
               );
@@ -67,7 +69,7 @@ const ContentPage = ({ data, pages }) => {
           })}
           {description && (
             <div className={styles.description}>
-              <p className={styles.descriptionText}>{description}</p>
+              <PageText content={description} />
             </div>
           )}
           {/* чтобы после последней фотографии был отступ */}
