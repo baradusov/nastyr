@@ -68,7 +68,7 @@ const ContentPage = ({ data, pages }) => {
             );
           })}
           {description && (
-            <div className={styles.description}>
+            <div className={styles.textBlock}>
               <PageText content={description} />
             </div>
           )}
