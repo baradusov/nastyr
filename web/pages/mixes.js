@@ -8,7 +8,7 @@ import Page from '../components/Page';
 
 const Home = ({ data, pages }) => {
   return (
-    <Page pages={pages} title={'mixes'}>
+    <Page pages={pages} title={'mixes'} isFixed>
       <div className={styles.mixes}>
         {data.map(({ url, _key }) => {
           if (url.includes('soundcloud')) {
