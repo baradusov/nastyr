@@ -37,6 +37,7 @@
 @media (max-width: 600px) {
   .menu {
     grid-row-start: 3;
+    z-index: 1;
   }
 }
 
